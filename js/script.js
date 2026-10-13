@@ -4,24 +4,22 @@
 
 
 // MOBILE MENU
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
 
-if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+const mobileMenuButton = document.querySelector(".menu-btn");
+const mobileNavLinks = document.querySelector(".nav-links");
+
+if (mobileMenuButton && mobileNavLinks) {
+    mobileMenuButton.addEventListener("click", () => {
+        mobileNavLinks.classList.toggle("active");
+    });
+
+    mobileNavLinks.querySelectorAll("a").forEach((item) => {
+        item.addEventListener("click", () => {
+            mobileNavLinks.classList.remove("active");
+        });
     });
 }
 
-
-// CLOSE MOBILE MENU WHEN A LINK IS CLICKED
-const navItems = document.querySelectorAll(".nav-links a");
-
-navItems.forEach((item) => {
-    item.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-    });
-});
 
 
 // NAVBAR SCROLL EFFECT
@@ -233,3 +231,23 @@ function highlightActiveMenu() {
 
 window.addEventListener("scroll", highlightActiveMenu);
 window.addEventListener("load", highlightActiveMenu);
+
+
+
+const menuToggle = document.querySelector(".menu-btn");
+
+
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active")
+    });
+}
+
+const navItems = document.querySelectorAll(".nav-links a");
+
+navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
+
